@@ -1,0 +1,48 @@
+@startuml 
+component ui {
+    folder WordDetective-ui {
+    class App
+    class Controllers
+    class Factories
+    }
+}
+
+component Core {
+    folder WordDetective-core {
+    class CategoryLogic
+    class GameLogic
+    }
+}
+
+component Persistance {
+    folder WordDetective-persistance {
+    class FileIO
+    class UserIO
+    }
+}
+
+component Domain {
+    folder WordDetective-domain {
+    class User
+    class WordLists
+    }
+}
+
+component JavaFX {
+}
+
+component GoogleGson {
+}
+
+ui --> JavaFX
+ui --> Core
+ui --> Domain
+
+Core --> Persistance
+Core --> Domain
+
+Persistance --> GoogleGson
+Persistance --> Domain
+
+
+@enduml

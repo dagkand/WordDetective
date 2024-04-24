@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="registrationPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: darkslategrey;" stylesheets="@css/index.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.RegistrationController">
+   <children>
+      <Pane layoutX="350.0" layoutY="81.0" prefHeight="400.0" prefWidth="300.0" styleClass="notepad">
+         <children>
+            <TextField fx:id="newUsername" layoutX="68.0" layoutY="111.0" promptText="New Username" />
+            <PasswordField fx:id="newPassword" layoutX="68.0" layoutY="189.0" promptText="New Password" />
+            <Button fx:id="signUp" layoutX="67.0" layoutY="312.0" mnemonicParsing="false" onAction="#fireSignUp" styleClass="btn" text="Sign Up" />
+            <Label layoutX="80.0" layoutY="26.0" text="SIGN UP" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorDisplay" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="15.0" layoutY="233.0" opacity="0.0" prefHeight="69.0" prefWidth="271.0" textAlignment="CENTER" textFill="#8d0d0d" wrapText="true">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="87.0" text="New Username:" textFill="WHITE" />
+            <Label layoutX="68.0" layoutY="166.0" text="New Password:" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Button fx:id="backArrowbtn" layoutX="64.0" layoutY="37.0" mnemonicParsing="false" onAction="#toLoginPage" prefHeight="37.0" prefWidth="84.0" style="-fx-background-color: #8f8769;" text="Back">
+         <graphic>
+            <ImageView fx:id="backArrowImg" fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/images/backArrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

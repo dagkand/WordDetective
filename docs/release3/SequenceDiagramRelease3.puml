@@ -1,0 +1,56 @@
+@startuml
+actor user as user
+participant UI as UI
+participant api as api
+participant core as core
+participant persistence as persistence
+
+user -> UI : login with username and password
+
+UI -> api : API request, performLogin(String requestBody)
+
+api -> core : Authenticate(String password)
+
+core -> persistence : usernameAndPasswordMatch(String username, String password)
+
+persistence -> core : LoginResult
+
+core -> api : LoginResult
+
+api -> UI : API response, LoginResult
+
+UI -> user : LoginResult
+
+user -> UI : Select category
+
+UI -> api : API request, newGame(String requestBody)
+
+api -> core : setCategory(String category)
+
+core -> persistence : getCategoryWordList(String category)
+
+persistence -> core : List<String>
+
+UI -> api : API request, newGame(String requestBody)
+
+api -> core : setCategory(String category)
+
+core -> persistence : getCategoryWordList(String category)
+
+persistence -> core : List<String>
+
+core -> api : void
+
+api -> UI : HttpStatus
+
+UI -> api : getWord()
+
+api -> core : getWord()
+
+core -> api : String
+
+api -> UI : String
+
+UI -> user : substring for guess
+
+@enduml

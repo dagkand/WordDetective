@@ -1,0 +1,83 @@
+@startuml
+package "Types" {
+  class User {
+    - name: String
+    - pwd: String
+    - highscore: int
+    - customCategories: HashMap<String, List<String>>
+
+    + User()
+    + getUsername(): String
+    + getPassword(): String
+    + getCustomCategories(): HashMap<String, List<String>>
+    + addCustomCategories(categoryName: String, customCategory: List<String>): void
+  }
+}
+
+package "Core" {
+  class Game {
+    - isGuestUser: boolean;
+    - wordlist: List<String>;
+
+    + setCategory(category: String): void
+    + getWordList(): List<String>
+    + getSubstring(): String
+    + checkValidWord(substring: String, guess: String): boolean
+    + savePlayerHighscore(score: int): void
+  }
+
+  class LoginAuthentication {
+    - username: String
+
+    + LoginAuthentication(providedUsername: String)
+    + authenticate(password: String): boolean
+    + isValidPassword(password: String): boolean
+  }
+
+  class RegistrationAuthentication {
+
+    + registrationResult(newUsername: String, newPassword: String): boolean
+    + isValidPassword(password: String): boolean
+    + isValidUsername(newUsername: String): boolean
+  }
+
+  interface AbstractGame {
+    + setCategory(category: String): void
+    + getWordList(): List<String>
+    + getSubstring(): String
+    + checkValidWord(substring: String, guess: String): boolean
+    + savePlayerHighscore(score: int): void
+  }
+
+  interface AbstractAuthentication {
+    - usernameExists(username: String): boolean
+    - isValidPassword(password: String): boolean
+  }
+
+  Game ..|> AbstractGame
+  LoginAuthentication ..|> AbstractAuthentication
+  RegistrationAuthentication ..|> AbstractAuthentication
+}
+
+package "Persistence" {
+  class JsonIO {
+    - user: User
+
+    + getAllCategories(): Set<String>
+    + updateCurrentUser(predicate: Predicate<User>): void
+    + getCategoryWordlist(category: String): List<String>
+    + getUser(username: String): User
+    + addUser(user: User): boolean
+  }
+
+  interface AbstractJsonIO {
+    + getAllCategories(): Set<String>
+    + updateCurrentUser(predicate: Predicate<User>): void
+    + getCategoryWordlist(category: String): List<String>
+    + getUser(username: String): User
+    + addUser(user: User): boolean
+  }
+
+  JsonIO ..|> AbstractJsonIO
+}
+@enduml

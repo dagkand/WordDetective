@@ -1,0 +1,43 @@
+@startuml
+
+component project.types
+component project.core
+component project.persistence
+
+component RESTServer {
+    package project.api
+}
+
+
+component FXClient {
+    package project.ui
+}
+
+component deps.SpringBoot
+component deps.hsqldb
+component deps.GoogleGson
+component deps.JavaFX
+
+project.types ..> deps.GoogleGson
+
+project.core ..> project.persistence
+project.core ..> project.types
+project.core ..> deps.GoogleGson
+
+project.persistence ..> project.types
+project.persistence ..> deps.GoogleGson
+
+FXClient ..> project.types
+FXClient ..> deps.JavaFX
+FXClient ..> RESTServer
+FXClient ..> deps.GoogleGson
+
+RESTServer ..> project.core
+RESTServer ..> project.persistence
+RESTServer ..> project.types
+RESTServer ..> deps.SpringBoot
+RESTServer ..> deps.hsqldb
+
+
+
+@enduml

@@ -1,0 +1,115 @@
+
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif ;
+    background-color: rgb(10, 73, 14);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    -fx-background-color:  #532618;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px 60px;
+    -fx-cursor: hand;
+    -fx-font-family: Arial, Helvetica, sans-serif ;
+}
+
+.btn:hover {
+    background-color: #421e13;
+    -fx-background-color: #421e13;
+}
+
+
+.categoryBtn {
+    -fx-background-color:  #7a402f;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px 60px;
+    -fx-cursor: hand;
+    -fx-font-family: Arial, Helvetica, sans-serif ;
+}
+
+
+.notepad{
+
+    -fx-background-color: #928963;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 18px;
+    -fx-border-width: 3px;
+}
+
+.scroll-pane .corner {
+    background-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    background-color: transparent;
+    -fx-color: rgb(46, 42, 42);
+    -fx-background-color: transparent;
+}
+
+.text-area{
+    -fx-background-color: black;
+    -fx-focus-color: transparent;
+}
+
+.text-area .content {
+-fx-background-color: #8f8769;
+
+}
+
+.text-field {
+    -fx-background-color: rgb(224, 223, 223);
+    -fx-padding: 10px;
+}
+
+/*-------------------Category.fxml---------------------*/
+
+.categoriesContainer {
+    background-color: #8f8769;
+    border-color: black;
+    border-radius: 20px;
+    border-width: 3px;
+    overflow: hidden;
+
+    -fx-background-color: #8f8769;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 18px;
+    -fx-border-width: 3px;
+    -fx-overflow: hidden;
+
+}
+
+
+.categoriesVbox {
+    background-color: #8f8769;
+    border-color: black;
+    border-radius: 20px;
+    border-width: 3px;
+    overflow: hidden;
+
+    -fx-background-color: #8f8769;
+    -fx-border-width: 3px;
+}
+
+
+.deleteBtn {
+    -fx-background-color:  rgb(197, 22, 22);
+}
+
+/*-------------------Category.fxml---------------------*/
+
+
+
+
+/*-------------------Game.fxml---------------------*/
+
+.playerInputField {
+    -fx-background-color: transparent;
+    -fx-opacity: 0;
+}
